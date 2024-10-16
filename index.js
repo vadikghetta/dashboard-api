@@ -3,10 +3,40 @@ import express from "express";
 const port = 8000;
 const app = express();
 
-app.get("/hello", (req, res) =>
+
+
+app.all("/hello", (req, res, next) =>
+{
+    console.log("Hello")
+    next();
+});
+const callback = (req, res, next) =>
+{
+    console.log("CB1")
+    next()
+}
+const callback2 = (req, res, next) =>
+{
+    console.log("CB2")
+    next()
+}
+app.get("/hello", [callback, callback2], (req, res) =>
 {
     res.send("Привет")
 });
+app.route('/book')
+    .get((req, res) =>
+    {
+        res.send('Get a random book')
+    })
+    .post((req, res) =>
+    {
+        res.send('Add a book')
+    })
+    .put((req, res) =>
+    {
+        res.send('Update the book')
+    })
 
 app.listen(port, () =>
 {
