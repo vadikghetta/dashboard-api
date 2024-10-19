@@ -5,30 +5,30 @@ const app = express();
 
 
 
-app.get("/", (req, res) =>
-{
-    console.log(req)
-    // res.set("Content-type", "text/plain")
-    res.append("warning", "code")
-    // res.type(".html")
-    // res.type("Content-type", "application/json")
-    // res.send("Привет")
-    res.status(200).json({ success: true })
-    res.cookie("name", "cookie", {
-        domain: "/",
-        path: "/",
-        secure: true,
-        expires: 6000
-    })
-    res.clearCookie("name")
-    // res.redirect(301, "http://wikipedia.org")
-});
+// app.get("/", (req, res) =>
+// {
+//     console.log(req)
+//     // res.set("Content-type", "text/plain")
+//     res.append("warning", "code")
+//     // res.type(".html")
+//     // res.type("Content-type", "application/json")
+//     // res.send("Привет")
+//     res.status(200).json({ success: true })
+//     res.cookie("name", "cookie", {
+//         domain: "/",
+//         path: "/",
+//         secure: true,
+//         expires: 6000
+//     })
+//     res.clearCookie("name")
+//     // res.redirect(301, "http://wikipedia.org")
+// });
 
 
-app.listen(port, () =>
-{
-    console.log(`Server start on http://localhost:${port}`)
-});
+// app.listen(port, () =>
+// {
+//     console.log(`Server start on http://localhost:${port}`)
+// });
 
 
 
