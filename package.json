@@ -5,14 +5,16 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
+    "prestart" : "tsc",
     "start": "node ./dist/main.js",
-    "build" : "tsc",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Vadim Getta",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.21.1"
+    "express": "^4.21.1",
+    "tslog": "^4.9.3"
   },
   "devDependencies": {
     "@types/express": "^5.0.0"
