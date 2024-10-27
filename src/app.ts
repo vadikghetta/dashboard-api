@@ -20,8 +20,13 @@ export class App {
     useRoutes () {
         this.app.use("/users" , this.userController.router)
     }
+    useExeptionFilters () {
+
+    }
+
     public async init(){
         this.useRoutes();
+        this.useExeptionFilters()
         this.server = this.app.listen(this.port);
         this.logger.log(`Server start on http://localhost:${this.port}`)
     }
