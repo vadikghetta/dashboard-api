@@ -5,15 +5,18 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "prestart" : "tsc",
+    "prestart": "tsc",
     "start": "node ./dist/main.js",
     "build": "tsc",
+    "watch:tsc": "tsc --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Vadim Getta",
   "license": "ISC",
   "dependencies": {
     "express": "^4.21.1",
+    "inversify": "^6.0.3",
+    "reflect-metadata": "^0.2.2",
     "tslog": "^4.9.3"
   },
   "devDependencies": {
