@@ -8,7 +8,10 @@ import { TYPES } from "./types";
 import { IExeptionFilter } from "./errors/exeption.filter.interface";
 
 
-
+export interface IBootStarpReturnType {
+	app: App,
+	appContainer : Container
+}
 
 export const appBindings = new ContainerModule((bind : interfaces.Bind) => {
 	bind<ILoogerService>(TYPES.ILoggerService).to(LoggerService);
@@ -17,7 +20,7 @@ export const appBindings = new ContainerModule((bind : interfaces.Bind) => {
 	bind<App>(TYPES.Application).to(App);
 });
 
-function bootstrap () {
+function bootstrap () : IBootStarpReturnType {
 	const appContainer = new Container();
 	appContainer.load(appBindings);
 	const app = appContainer.get<App>(TYPES.Application);
@@ -27,4 +30,4 @@ function bootstrap () {
 }
 
 
-export const {app , appContainer} = bootstrap();
+export const {app, appContainer} = bootstrap();

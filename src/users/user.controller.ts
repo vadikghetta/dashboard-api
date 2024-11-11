@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {NextFunction, Request, Response} from "express";
 import { BaseController } from "../common/base.controller";
 // import { HttpError } from "../errors/http-error";
@@ -13,14 +14,14 @@ export class UserController extends BaseController implements IUserController {
 	constructor(@inject(TYPES.ILoggerService) private loggerService : ILoogerService) {
 		super(loggerService);
 		this.bindRoutes([
-			{path : "/register" , method : "post" , func : this.register},
-			{path : "/login" , method : "post" , func : this.login}
+			{path : "/register", method : "post", func : this.register},
+			{path : "/login", method : "post", func : this.login}
 		]);
 	}
-	login(req : Request, res : Response, next : NextFunction) {
+	login(req : Request, res : Response, next : NextFunction) : void {
 		this.ok(res, "login");
 	}
-	register(req : Request, res : Response, next : NextFunction) {
+	register(req : Request, res : Response, next : NextFunction) : void {
 		this.ok(res, "register");
 	}
 

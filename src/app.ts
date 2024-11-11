@@ -1,4 +1,4 @@
-import express , {Express} from "express";
+import express, {Express} from "express";
 import {Server} from "node:http";
 import { UserController } from "./users/user.controller";
 import { ExeptionFilter } from "./errors/exeption.filter";
@@ -22,7 +22,7 @@ export class App {
 	}
 
 	useRoutes () {
-		this.app.use("/users" , this.userController.router);
+		this.app.use("/users", this.userController.router);
 	}
 	useExeptionFilters () {
 		this.app.use(this.exeptionFilter.catch.bind(this.exeptionFilter));
