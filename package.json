@@ -7,6 +7,7 @@
   "scripts": {
     "prestart": "tsc",
     "dev" : "nodemon",
+    "dev:inspect" : "nodemon -e ts,json --exec node --inspect=localhost:9222 -r ts-node/register src/main.ts",
     "start": "node ./dist/main.js",
     "build": "tsc",
     "watch:tsc": "tsc --watch",
