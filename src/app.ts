@@ -5,6 +5,7 @@ import { ExeptionFilter } from "./errors/exeption.filter";
 import { ILoogerService } from "./logger/logger.interface";
 import { inject, injectable } from "inversify";
 import { TYPES } from "./types";
+import { json } from "body-parser";
 import "reflect-metadata";
 
 @injectable()
@@ -27,8 +28,12 @@ export class App {
 	useExeptionFilters (): void {
 		this.app.use(this.exeptionFilter.catch.bind(this.exeptionFilter));
 	}
+	useMiddleware() : void {
+		this.app.use(json());
+	}
 
 	public async init() : Promise<void>{
+		this.useMiddleware();
 		this.useRoutes();
 		this.useExeptionFilters();
 		this.server = this.app.listen(this.port);

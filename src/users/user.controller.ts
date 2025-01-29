@@ -7,6 +7,8 @@ import { TYPES } from "../types";
 import { ILoogerService } from "../logger/logger.interface";
 import "reflect-metadata";
 import { IUserController } from "./users.controller.interface";
+import { UserLoginDto } from "./dto/user-login.dto";
+import { UserRegisterDto } from "./dto/user-register.dto";
 
 
 @injectable()
@@ -18,11 +20,13 @@ export class UserController extends BaseController implements IUserController {
 			{path : "/login", method : "post", func : this.login}
 		]);
 	}
-	login(req : Request, res : Response, next : NextFunction) : void {
-		console.log("ds");
+	login(req : Request<unknown, unknown, UserLoginDto>, res : Response, next : NextFunction) : void {
+
+		console.log(req.body);
 		this.ok(res, "login");
 	}
-	register(req : Request, res : Response, next : NextFunction) : void {
+	register(req : Request<unknown, unknown, UserRegisterDto>, res : Response, next : NextFunction) : void {
+		console.log(req.body);
 		this.ok(res, "register");
 	}
 

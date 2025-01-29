@@ -6,8 +6,8 @@
   "type": "commonjs",
   "scripts": {
     "prestart": "tsc",
-    "dev" : "nodemon",
-    "dev:inspect" : "nodemon -e ts,json --exec node --inspect=localhost:9222 -r ts-node/register src/main.ts",
+    "dev": "nodemon",
+    "dev:inspect": "nodemon -e ts,json --exec node --inspect=localhost:9222 -r ts-node/register src/main.ts",
     "start": "node ./dist/main.js",
     "build": "tsc",
     "watch:tsc": "tsc --watch",
@@ -18,6 +18,7 @@
   "author": "Vadim Getta",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.3",
     "express": "^4.21.1",
     "inversify": "^6.0.3",
     "reflect-metadata": "^0.2.2",
